@@ -9,15 +9,13 @@ def window():
 
     w = QtGui.QMainWindow()
 
-    w.resize(320, 100)
-    w.setWindowTitle("Combobox Widget")
+    w.resize(320, 240)
+    w.setWindowTitle("Calendar Widget")
 
-    combo = QComboBox(w)
-    combo.addItem("Python")
-    combo.addItem("Perl")
-    combo.addItem("Java")
-    combo.addItem("C++")
-    combo.move(20, 20)
+    cal = QCalendarWidget(w)
+    cal.setGridVisible(True)
+    cal.move(0, 0)
+    cal.resize(320, 240)
 
     w.show()
 
