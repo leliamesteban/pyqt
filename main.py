@@ -9,18 +9,12 @@ def window():
 
     w = QtGui.QMainWindow()
 
-    w.setGeometry(100, 100, 200, 50)
-    w.setWindowTitle("Hello World!")
+    w.resize(320, 100)
+    w.setWindowTitle("Textbox Widget")
 
-    mainMenu = w.menuBar()
-    mainMenu.setNativeMenuBar(False)
-    fileMenu = mainMenu.addMenu('File')
-
-    exitButton = QAction(QIcon('exit24.png'), 'Exit', w)
-    exitButton.setShortcut('Ctrl+Q')
-    exitButton.setStatusTip('Exit Application')
-    exitButton.triggered.connect(w.close)
-    fileMenu.addAction(exitButton)
+    textbox = QLineEdit(w)
+    textbox.move(20, 20)
+    textbox.resize(280, 40)
     w.show()
 
     sys.exit(app.exec_())
