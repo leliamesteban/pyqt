@@ -7,17 +7,22 @@ def window():
     # Create a PyQt4 application object
     app = QtGui.QApplication(sys.argv)
 
-    w = QtGui.QMainWindow()
+    table = QTableWidget()
+    tableItem = QTableWidgetItem()
 
-    w.resize(320, 240)
-    w.setWindowTitle("Calendar Widget")
+    table.setRowCount(4)
+    table.setColumnCount(2)
 
-    cal = QCalendarWidget(w)
-    cal.setGridVisible(True)
-    cal.move(0, 0)
-    cal.resize(320, 240)
+    table.setItem(0,0, QTableWidgetItem("Item (1,1)"))
+    table.setItem(0,1, QTableWidgetItem("Item (1,2)"))
+    table.setItem(1,0, QTableWidgetItem("Item (2,1)"))
+    table.setItem(1,1, QTableWidgetItem("Item (2,2)"))
+    table.setItem(2,0, QTableWidgetItem("Item (3,1)"))
+    table.setItem(2,1, QTableWidgetItem("Item (3,2)"))
+    table.setItem(3,0, QTableWidgetItem("Item (4,1)"))
+    table.setItem(3,1, QTableWidgetItem("Item (4,2)"))
 
-    w.show()
+    table.show()
 
     sys.exit(app.exec_())
 
