@@ -10,11 +10,15 @@ def window():
     w = QtGui.QMainWindow()
 
     w.resize(320, 100)
-    w.setWindowTitle("Textbox Widget")
+    w.setWindowTitle("Combobox Widget")
 
-    textbox = QLineEdit(w)
-    textbox.move(20, 20)
-    textbox.resize(280, 40)
+    combo = QComboBox(w)
+    combo.addItem("Python")
+    combo.addItem("Perl")
+    combo.addItem("Java")
+    combo.addItem("C++")
+    combo.move(20, 20)
+
     w.show()
 
     sys.exit(app.exec_())
