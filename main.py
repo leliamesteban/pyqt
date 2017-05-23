@@ -24,7 +24,12 @@ def window():
 
     table.show()
 
+    table.cellClicked.connect(cellClick)
+
     sys.exit(app.exec_())
+
+def cellClick(row, col):
+    print("Click on %s" % str(row+1), str(col+1))
 
 if __name__ == '__main__':
     window()
