@@ -7,16 +7,20 @@ def window():
     # Create a PyQt4 application object
     app = QtGui.QApplication(sys.argv)
 
-    # QWidget is the base class of all user interface objects in PyQt4
-    w = QtGui.QWidget()
+    w = QtGui.QMainWindow()
 
-    result = QMessageBox.question(w, 'Message', "Do you like python?", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-
-    if result == QMessageBox.Yes:
-        print("Yes")
-    else:
-        print("No")
     w.setGeometry(100, 100, 200, 50)
+    w.setWindowTitle("Hello World!")
+
+    mainMenu = w.menuBar()
+    mainMenu.setNativeMenuBar(False)
+    fileMenu = mainMenu.addMenu('File')
+
+    exitButton = QAction(QIcon('exit24.png'), 'Exit', w)
+    exitButton.setShortcut('Ctrl+Q')
+    exitButton.setStatusTip('Exit Application')
+    exitButton.triggered.connect(w.close)
+    fileMenu.addAction(exitButton)
     w.show()
 
     sys.exit(app.exec_())
