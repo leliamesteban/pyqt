@@ -1,3 +1,4 @@
+import os
 import sys
 from PyQt4 import QtGui
 from PyQt4.QtGui import *
@@ -7,20 +8,12 @@ def window():
     # Create a PyQt4 application object
     app = QtGui.QApplication(sys.argv)
     w = QWidget()
+    w.setWindowTitle("Image")
 
-    tab1 = QtGui.QWidget()
-    tab2 = QtGui.QWidget()
-    tab3 = QtGui.QWidget()
-    tab4 = QtGui.QWidget()
-
-    w.resize(320, 240)
-    w.setWindowTitle("Files")
-
-    filename = QFileDialog.getOpenFileName(w, 'Open File', '/')
-    print(filename)
-
-    with open(filename, 'r') as f:
-        print(f.read())
+    label = QLabel(w)
+    pixmap = QPixmap(os.getcwd() + '/logo.png')
+    label.setPixmap(pixmap)
+    w.resize(pixmap.width(), pixmap.height())
 
     w.show()
 
