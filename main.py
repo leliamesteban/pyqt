@@ -6,30 +6,33 @@ def window():
 
     # Create a PyQt4 application object
     app = QtGui.QApplication(sys.argv)
+    tabs = QtGui.QTabWidget()
 
-    table = QTableWidget()
-    tableItem = QTableWidgetItem()
+    tab1 = QtGui.QWidget()
+    tab2 = QtGui.QWidget()
+    tab3 = QtGui.QWidget()
+    tab4 = QtGui.QWidget()
 
-    table.setRowCount(4)
-    table.setColumnCount(2)
+    tabs.resize(250, 150)
 
-    table.setItem(0,0, QTableWidgetItem("Item (1,1)"))
-    table.setItem(0,1, QTableWidgetItem("Item (1,2)"))
-    table.setItem(1,0, QTableWidgetItem("Item (2,1)"))
-    table.setItem(1,1, QTableWidgetItem("Item (2,2)"))
-    table.setItem(2,0, QTableWidgetItem("Item (3,1)"))
-    table.setItem(2,1, QTableWidgetItem("Item (3,2)"))
-    table.setItem(3,0, QTableWidgetItem("Item (4,1)"))
-    table.setItem(3,1, QTableWidgetItem("Item (4,2)"))
+    vBoxLayout = QtGui.QVBoxLayout()
+    pushButton1 = QtGui.QPushButton("Start")
+    pushButton2 = QtGui.QPushButton("Settings")
+    pushButton3 = QtGui.QPushButton("Stop")
+    vBoxLayout.addWidget(pushButton1)
+    vBoxLayout.addWidget(pushButton2)
+    vBoxLayout.addWidget(pushButton3)
+    tab1.setLayout(vBoxLayout)
 
-    table.show()
+    tabs.addTab(tab1, "Tab 1")
+    tabs.addTab(tab2, "Tab 2")
+    tabs.addTab(tab3, "Tab 3")
+    tabs.addTab(tab4, "Tab 4")
 
-    table.cellClicked.connect(cellClick)
+    tabs.setWindowTitle("Tabs")
+    tabs.show()
 
     sys.exit(app.exec_())
-
-def cellClick(row, col):
-    print("Click on %s" % str(row+1), str(col+1))
 
 if __name__ == '__main__':
     window()
