@@ -6,31 +6,23 @@ def window():
 
     # Create a PyQt4 application object
     app = QtGui.QApplication(sys.argv)
-    tabs = QtGui.QTabWidget()
+    w = QWidget()
 
     tab1 = QtGui.QWidget()
     tab2 = QtGui.QWidget()
     tab3 = QtGui.QWidget()
     tab4 = QtGui.QWidget()
 
-    tabs.resize(250, 150)
+    w.resize(320, 240)
+    w.setWindowTitle("Files")
 
-    vBoxLayout = QtGui.QVBoxLayout()
-    pushButton1 = QtGui.QPushButton("Start")
-    pushButton2 = QtGui.QPushButton("Settings")
-    pushButton3 = QtGui.QPushButton("Stop")
-    vBoxLayout.addWidget(pushButton1)
-    vBoxLayout.addWidget(pushButton2)
-    vBoxLayout.addWidget(pushButton3)
-    tab1.setLayout(vBoxLayout)
+    filename = QFileDialog.getOpenFileName(w, 'Open File', '/')
+    print(filename)
 
-    tabs.addTab(tab1, "Tab 1")
-    tabs.addTab(tab2, "Tab 2")
-    tabs.addTab(tab3, "Tab 3")
-    tabs.addTab(tab4, "Tab 4")
+    with open(filename, 'r') as f:
+        print(f.read())
 
-    tabs.setWindowTitle("Tabs")
-    tabs.show()
+    w.show()
 
     sys.exit(app.exec_())
 
